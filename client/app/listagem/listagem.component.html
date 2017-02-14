@@ -1,0 +1,90 @@
+<div class="jumbotron">
+  <h1 class="text-center">Tasks</h1>
+  
+</div>
+<div class="container">
+  
+  <div class="row">
+   <p *ngIf="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+   <div class="col-md-12">
+    <form>
+     <div class="input-group">
+      <span class="input-group-btn">
+       
+        <a [routerLink]="['/cadastro']" class="btn btn-primary">
+          Nova foto
+        </a>
+      </span>
+      <input class="form-control" #textoProcurado (keyup)="0" placeholder="filtrar pela tarefa">
+    </div> 
+  </form>
+</div> <!-- fim col-md-12 -->
+</div> <!-- fim row -->
+<br>
+
+<div class="container">
+  <h2>Lista de tarefas</h2>
+  <p>Consulte aqui suas tarefas</p>            
+  
+  <div class="list-group">
+   
+   
+   
+   <a href="#" class="list-group-item active">
+     <div class="row">
+      <div class="col-md-4">Tarefa</div>
+      <div class="col-md-4">Status</div>
+      <div class="col-md-4">Data</div>
+    </div>
+  </a>
+
+  <ul class="list-group">
+    
+    <li  #painel *ngFor="let foto of fotos |filtroPorTitulo: textoProcurado.value" class="list-group-item lista">
+      <div class="row background " *ngIf="foto.url == 'concluido'" >
+       <div class="col-md-4"><s> {{foto.titulo}}</s></div>
+       <div class="col-md-4"><s>  {{foto.url}}</s></div>
+       <div class="col-md-4">
+           
+           <s>  {{foto.data}} </s>
+            
+         <botao nome="Remover" estilo="btn-danger btn-block btn-xs" (acao)="remove(foto,painel)" confirmacao="true">Remover</botao></div>
+       
+          
+          
+     </div>
+     <div class="row background2 " *ngIf="foto.url == 'pendente'" >
+       <div class="col-md-4">{{foto.titulo}}</div>
+       <div class="col-md-4"> {{foto.url}}</div>
+       <div class="col-md-4">
+      
+             {{foto.data}} 
+         <botao nome="Remover" estilo="btn-danger btn-block btn-xs" (acao)="remove(foto,painel)" confirmacao="true">Remover</botao></div>
+       
+
+     </div>
+
+     <div class="row background1 " *ngIf="foto.url == 'em curso'" >
+       <div class="col-md-4"> {{foto.titulo}}</div>
+       <div class="col-md-4"> {{foto.url}}</div>
+        <div class="col-md-4">
+           
+            {{foto.data}}
+       
+       
+         <botao nome="Remover" estilo="btn-danger btn-block btn-xs" (acao)="remove(foto,painel)" confirmacao="true">Remover</botao></div>
+       
+     </div>
+   </li>
+   
+   
+   
+ </ul>
+
+
+        
+
+</div>
+</div><!-- fim row -->
+  
+</div>
