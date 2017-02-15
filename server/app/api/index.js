@@ -51,6 +51,8 @@ api.adiciona = function(req, res) {
     var foto = req.body;
     delete foto._id;
 
+     
+
     foto.data = new Date();
     	database
 	.create(foto)
@@ -93,7 +95,7 @@ api.atualiza = function(req, res) {
 
 api.lista = function(req, res) {
 
-  database.find({}).sort({descricao: -1})
+  database.find({}).sort( {descricao: -1, data: -1})
   .then(function(usuario) {
 
     console.log(usuario);
