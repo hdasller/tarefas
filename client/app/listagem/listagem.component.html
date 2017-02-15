@@ -12,7 +12,7 @@
       <span class="input-group-btn">
        
         <a [routerLink]="['/cadastro']" class="btn btn-primary">
-          Nova foto
+          Nova tarefa
         </a>
       </span>
       <input class="form-control" #textoProcurado (keyup)="0" placeholder="filtrar pela tarefa">
@@ -30,7 +30,7 @@
    
    
    
-   <a href="#" class="list-group-item active">
+   <a  href="#" class="list-group-item active painel">
      <div class="row">
       <div class="col-md-4">Tarefa</div>
       <div class="col-md-4">Status</div>
@@ -46,9 +46,13 @@
        <div class="col-md-4"><s>  {{foto.url}}</s></div>
        <div class="col-md-4">
            
-           <s>  {{foto.data}} </s>
+           <s>   {{foto.data | date: 'dd/MM/yyyy HH:mm:ss'}}</s>
             
-         <botao nome="Remover" estilo="btn-danger btn-block btn-xs" (acao)="remove(foto,painel)" confirmacao="true">Remover</botao></div>
+           <button (click)="remove(foto,painel)" class="btn-view-fund btn btn-danger btn-xs" type="button">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </button>     
+         
+         </div>
        
           
           
@@ -58,10 +62,11 @@
        <div class="col-md-4"> {{foto.url}}</div>
        <div class="col-md-4">
       
-             {{foto.data}} 
-         <botao nome="Remover" estilo="btn-danger btn-block btn-xs" (acao)="remove(foto,painel)" confirmacao="true">Remover</botao></div>
-       
-
+             {{foto.data | date: 'dd/MM/yyyy HH:mm:ss'}}
+         <button (click)="remove(foto,painel)" class="btn-view-fund btn btn-danger btn-xs" type="button">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </button>     
+       </div>
      </div>
 
      <div class="row background1 " *ngIf="foto.url == 'em curso'" >
@@ -69,10 +74,12 @@
        <div class="col-md-4"> {{foto.url}}</div>
         <div class="col-md-4">
            
-            {{foto.data}}
+       {{foto.data | date: 'dd/MM/yyyy HH:mm:ss'}}
        
        
-         <botao nome="Remover" estilo="btn-danger btn-block btn-xs" (acao)="remove(foto,painel)" confirmacao="true">Remover</botao></div>
+           <button (click)="remove(foto,painel)"  class="btn-view-fund btn btn-danger btn-xs" type="button">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </button>     </div>
        
      </div>
    </li>
