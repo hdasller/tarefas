@@ -36,7 +36,7 @@ export class ListagemComponent {
                     let indice = novasFotos.indexOf(foto)
                     novasFotos.splice(indice, 1);
                     this.fotos = novasFotos;
-                    this.mensagem = 'Foto removida com sucesso';
+                    this.mensagem = 'Tarefa removida com sucesso';
 
 
                 
@@ -44,7 +44,7 @@ export class ListagemComponent {
             },
             erro => {
                 console.log(erro);
-                this.mensagem = "nao foi possivel remover a foto";
+                this.mensagem = "nao foi possivel remover a tarefa";
             })
     }
 

@@ -31,10 +31,10 @@ var ListagemComponent = (function () {
             var indice = novasFotos.indexOf(foto);
             novasFotos.splice(indice, 1);
             _this.fotos = novasFotos;
-            _this.mensagem = 'Foto removida com sucesso';
+            _this.mensagem = 'Tarefa removida com sucesso';
         }, function (erro) {
             console.log(erro);
-            _this.mensagem = "nao foi possivel remover a foto";
+            _this.mensagem = "nao foi possivel remover a tarefa";
         });
     };
     return ListagemComponent;
