@@ -50,10 +50,19 @@ var api = {}
 api.adiciona = function(req, res) {
     var foto = req.body;
     delete foto._id;
+console.log(foto.url);
+var status = ['Pendente','Em curso','Concluido']
+     for (var i = 0; i<3 ;i++){
 
-     
+ if (foto.url == status[i]){
+foto.descricao = i+1;
+     }
 
+     }
+    
+    
     foto.data = new Date();
+   
     	database
 	.create(foto)
 	.then(function (foto){//serve para saber o id 
