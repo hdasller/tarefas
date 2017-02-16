@@ -44,7 +44,7 @@ export class ListagemComponent {
             },
             erro => {
                 console.log(erro);
-                this.mensagem = "nao foi possivel remover a tarefa";
+                this.mensagem = "Nao foi possivel remover a tarefa";
             })
     }
 

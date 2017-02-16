@@ -34,7 +34,7 @@ var ListagemComponent = (function () {
             _this.mensagem = 'Tarefa removida com sucesso';
         }, function (erro) {
             console.log(erro);
-            _this.mensagem = "nao foi possivel remover a tarefa";
+            _this.mensagem = "Nao foi possivel remover a tarefa";
         });
     };
     return ListagemComponent;

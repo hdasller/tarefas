@@ -43,7 +43,7 @@
 <a #painel *ngFor="let foto of fotos |filtroPorTitulo: textoProcurado.value" class="lista" class="list-group-item lista">
 
 
-      <div class="row background " *ngIf="foto.url == 'concluido'" >
+      <div class="row background " *ngIf="foto.url == 'Concluido'" >
        <div class="col-md-4"><s> {{foto.titulo}}</s></div>
        <div class="col-md-4"><s>  {{foto.url}}</s></div>
        <div class="col-md-4">
@@ -60,7 +60,7 @@
           
      </div>
 
-       <div class="row background2 " *ngIf="foto.url == 'pendente'" >
+       <div class="row background2 " *ngIf="foto.url == 'Pendente'" >
        <div class="col-md-4">{{foto.titulo}}</div>
        <div class="col-md-4"> {{foto.url}}</div>
        <div class="col-md-4">
@@ -72,7 +72,7 @@
        </div>
      </div>
 
-     <div class="row background1 " *ngIf="foto.url == 'em curso'" >
+     <div class="row background1 " *ngIf="foto.url == 'Em curso'" >
        <div class="col-md-4"> {{foto.titulo}}</div>
        <div class="col-md-4"> {{foto.url}}</div>
         <div class="col-md-4">

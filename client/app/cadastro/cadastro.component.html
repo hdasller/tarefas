@@ -11,30 +11,22 @@
                          <span *ngIf="meuForm.controls.titulo.errors.minlength" class="form-control alert-danger" >Tarefa deve ter no minimo 4 caracteres</span>
                 </div>
             </div>
-            <div class="form-group">
-                <label>Status</label>
-                <input name="url" formControlName="url" [(ngModel)]="foto.url" class="form-control" autocomplete="off">
-                                <span *ngIf="meuForm.controls.url.invalid" class="form-control alert-danger" >Status nao pode estar em branco</span>
-            </div>
-            <div class="form-group">
-                <label>Grupo Status</label>
-                <textarea name="descricao" formControlName="descricao" [(ngModel)]="foto.descricao" class="form-control" autocomplete="off">
-                </textarea>
-                
-                         <span *ngIf="meuForm.controls.descricao.invalid" class="form-control alert-danger" >Grupo Status nao pode estar em branco</span>
-                
-                
-               
-            </div>
+                       
+           <div class="form-group">
+  <label for="sel1">Status:</label>
+  <select name="url" formControlName="url" class="form-control">
+    <option >Concluido</option>
+    <option  >Pendente</option>
+    <option >Em curso</option>
+  </select>
+</div>
             <botao nome="Salvar" estilo="btn-primary" tipo="submit" [desabilitado]="meuForm.invalid"></botao>
             
              <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
             <hr>
       
         </div>
-          <div class="col-md-6">
-            <foto [url]="foto.url" [titulo]="foto.titulo"></foto>
-        </div>
+          
 
     </form>
 </div>

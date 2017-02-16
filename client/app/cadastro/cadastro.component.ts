@@ -49,9 +49,7 @@ export class CadastroComponent {
 
         this.meuForm = fb.group({
             titulo: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-            url: ['', Validators.required],
-            descricao: ['', Validators.required],
-          
+            url:['']
             
 
         });
@@ -60,8 +58,9 @@ export class CadastroComponent {
 
     cadastrar(event) {
         event.preventDefault();
-        console.log(this.foto);
-
+         this.foto = this.meuForm.value;
+        console.log(this.meuForm.value);
+       
         this.service
             .cadastra(this.foto)
             .subscribe(res => {
@@ -72,7 +71,7 @@ export class CadastroComponent {
 
             }, erro => {
                 console.log(erro);
-                this.mensagem = 'Não foi possível savar a foto';
+                this.mensagem = 'Não foi possível savar a tarefa';
             });
     }
 }

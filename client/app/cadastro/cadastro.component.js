@@ -32,14 +32,14 @@ var CadastroComponent = (function () {
         });
         this.meuForm = fb.group({
             titulo: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(4)])],
-            url: ['', forms_1.Validators.required],
-            descricao: ['', forms_1.Validators.required],
+            url: ['']
         });
     }
     CadastroComponent.prototype.cadastrar = function (event) {
         var _this = this;
         event.preventDefault();
-        console.log(this.foto);
+        this.foto = this.meuForm.value;
+        console.log(this.meuForm.value);
         this.service
             .cadastra(this.foto)
             .subscribe(function (res) {
@@ -49,7 +49,7 @@ var CadastroComponent = (function () {
                 _this.router.navigate(['']);
         }, function (erro) {
             console.log(erro);
-            _this.mensagem = 'Não foi possível savar a foto';
+            _this.mensagem = 'Não foi possível savar a tarefa';
         });
     };
     return CadastroComponent;
