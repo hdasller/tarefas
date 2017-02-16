@@ -38,9 +38,11 @@
     </div>
   </a>
 
-  <ul class="list-group">
-    
-    <li  #painel *ngFor="let foto of fotos |filtroPorTitulo: textoProcurado.value" class="list-group-item lista">
+ 
+
+<a #painel *ngFor="let foto of fotos |filtroPorTitulo: textoProcurado.value" class="lista" class="list-group-item lista">
+
+
       <div class="row background " *ngIf="foto.url == 'concluido'" >
        <div class="col-md-4"><s> {{foto.titulo}}</s></div>
        <div class="col-md-4"><s>  {{foto.url}}</s></div>
@@ -57,7 +59,8 @@
           
           
      </div>
-     <div class="row background2 " *ngIf="foto.url == 'pendente'" >
+
+       <div class="row background2 " *ngIf="foto.url == 'pendente'" >
        <div class="col-md-4">{{foto.titulo}}</div>
        <div class="col-md-4"> {{foto.url}}</div>
        <div class="col-md-4">
@@ -77,21 +80,21 @@
        {{foto.data | date: 'dd/MM/yyyy HH:mm:ss'}}
        
        
-           <button (click)="remove(foto,painel)"  class="btn-view-fund btn btn-danger btn-xs" type="button">
+        <button (click)="remove(foto,painel)" class="btn-view-fund btn btn-danger btn-xs" type="button">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                            </button>     </div>
-       
+                            </button>
+        </div>
      </div>
-   </li>
-   
-   
-   
- </ul>
+
+</a>
+    
 
 
         
 
-</div>
+
 </div><!-- fim row -->
+  
+
   
 </div>

@@ -20,7 +20,6 @@ export class ListagemComponent {
         service
             .lista()
             .subscribe(fotos => {
-                
                 this.fotos = fotos;
             }, erro => console.log(erro))
     }
@@ -31,7 +30,7 @@ export class ListagemComponent {
             .remove(foto)
             .subscribe(() => {
 
-                painel.fadeOut(() => {
+          
 
                     let novasFotos = this.fotos.slice(0);
                     let indice = novasFotos.indexOf(foto)
@@ -40,7 +39,7 @@ export class ListagemComponent {
                     this.mensagem = 'Foto removida com sucesso';
 
 
-                });
+                
 
             },
             erro => {

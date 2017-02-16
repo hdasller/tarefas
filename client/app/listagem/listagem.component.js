@@ -27,13 +27,11 @@ var ListagemComponent = (function () {
         this.service
             .remove(foto)
             .subscribe(function () {
-            painel.fadeOut(function () {
-                var novasFotos = _this.fotos.slice(0);
-                var indice = novasFotos.indexOf(foto);
-                novasFotos.splice(indice, 1);
-                _this.fotos = novasFotos;
-                _this.mensagem = 'Foto removida com sucesso';
-            });
+            var novasFotos = _this.fotos.slice(0);
+            var indice = novasFotos.indexOf(foto);
+            novasFotos.splice(indice, 1);
+            _this.fotos = novasFotos;
+            _this.mensagem = 'Foto removida com sucesso';
         }, function (erro) {
             console.log(erro);
             _this.mensagem = "nao foi possivel remover a foto";
