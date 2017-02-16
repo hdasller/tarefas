@@ -92,17 +92,6 @@ api.atualiza = function(req, res) {
     });
 };*/
 
-
-api.lista = function(req, res) {
-
-  database.find({}).sort( {descricao: -1, data: -1})
-  .then(function(usuario) {
-
-    console.log(usuario);
-    res.json(usuario);
-  });
-
-
 require("jsdom").env("", function(err, window) {
     if (err) {
         console.error(err);
@@ -113,6 +102,13 @@ require("jsdom").env("", function(err, window) {
 
    });
 
+
+api.lista = function(req, res) {
+
+  database.find({}).sort({descricao: -1, data: -1}).exec(function(err, doc) {
+        if (err) return console.log(err);
+        res.json(doc);
+    });
 
 }
 
@@ -131,16 +127,12 @@ api.listaPorGrupo = function(req, res) {
 api.remove = function(req, res) {
 
 
- database.remove({ _id: req.params.fotoId})
-  .then(function(erro, numRemoved) {
-
- if (err) return console.log(err);
+ database.remove({ _id: req.params.fotoId }, function (err, numRemoved) {
+        if (err) return console.log(err);
         console.log('removido com sucesso');
         if(numRemoved) res.status(200).end();
         res.status(500).end();
-
-  });
-
+    });
 };
 
 api.listaGrupos = function(req, res) {
